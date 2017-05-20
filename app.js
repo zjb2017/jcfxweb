@@ -58,9 +58,10 @@ app.use('/index', index);
 app.use('/users', users);
 
 //登录成功后，如果再次访问根，就踢回到登录,避免有漏洞 ^.^
-app.use('/',function (req, res, next){
-    res.redirect('/login?t=login');
-});
+//app.use('/',function (req, res, next){
+   // res.redirect('/login?t=login');
+//   next();
+//});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
