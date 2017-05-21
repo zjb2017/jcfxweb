@@ -38,10 +38,10 @@
 						<span>Foods</span>
 						<ul>
 							<li>
-								<span>Fruits</span>
+								<span>学生信息管理</span>
 								<ul>
-									<li>apple</li>
-									<li>orange</li>
+									<li id='std/xsxx_add'>学生信息添加</li>
+									<li id='std/xsxx_cx'>学生信息查询</li>
 								</ul>
 							</li>
 							<li>
@@ -75,7 +75,7 @@
 	function addTab(node) {
 		//alert(JSON.stringify(node)); 
 		var tab_title = node.text;
-		var url = '/LoadModule?t=show&m=test';
+		var url = '/LoadModule?t=show&m='+node.id;
 		var content = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
 
 		$('#tt').tabs('add', {

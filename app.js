@@ -14,6 +14,8 @@ var users = require('./routes/users');
 
 var module_ejs=require('./routes/LoadModule');
 
+var students= require('./routes/std');
+
 var app = express();
 
 
@@ -61,6 +63,7 @@ app.use('/users', users);
 
 app.use('/LoadModule',module_ejs);
 
+app.use('/std',students)
 //登录成功后，如果再次访问根，就踢回到登录,避免有漏洞 ^.^
 //app.use('/',function (req, res, next){
    // res.redirect('/login?t=login');

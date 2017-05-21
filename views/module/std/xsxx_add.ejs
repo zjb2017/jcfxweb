@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Window Layout - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.2/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.2/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.2/demo/demo.css">
+    <script type="text/javascript" src="jquery-easyui-1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.5.2/jquery.easyui.min.js"></script>
+</head>
+
+<body class="easyui-layout">
+
+    <div region="center" border="false" style="padding:5px;background:#fff;border:1px solid #ccc;">
+        <form id="std_xx" method="post">
+            <div style="padding:5px 0;">
+                <label for="xh">学号:</label>
+                <input type="text" name="xh" style="width:260px;"></input>
+            </div>
+            <div style="padding:5px 0;">
+                <label for="xm">姓名:</label>
+                <input type="text" name="xm" style="width:260px;"></input>
+            </div>
+            <div style="padding:5px 0;">
+                <label for="xb">性别:</label>
+                <select class="easyui-combobox" name="xb" style="width:60px;">
+		<option value="M">男</option>
+		<option value="W">女</option>
+                </select>
+            </div>
+            <div style="padding:5px 0;">
+                <label for="pwd">密码:</label>
+                <input type="password" name="pwd" style="width:260px;"></input>
+            </div>
+            <div style="padding:5px 0;text-align: center;color: red;" id="showMsg"></div>
+        </form>
+        <a class="easyui-linkbutton" iconCls="icon-ok" href="javascript:void(0)" onclick="save()">保存</a>
+        <a class="easyui-linkbutton" iconCls="icon-cancel" href="javascript:void(0)" onclick="cleardata()">重置</a>
+    </div>
+
+
+
+</body>
+<script type="text/javascript">
+    function cleardata() {
+        $('#std_xx').form('clear');
+    }
+
+function save() {
+        if ($("input[name='xh']").val() == "" || $("input[name='xm']").val() == "") {
+            $("#showMsg").html("学号或姓名为空，请输入");
+            $("input[name='xh']").focus();
+        } else {
+            //ajax异步提交  
+            $.ajax({
+                type: "POST",   //post提交方式默认是get
+                url: "std?t=add",
+                data: $("#std_xx").serialize(),   //序列化               
+                error: function (request) {      // 设置表单提交出错                 
+                    $("#showMsg").html(request);  //登录错误提示信息
+                },
+                success: function (data) {
+                    var r = JSON.parse(data);
+
+                    if (r.success == 'success' && r.errCode == '0') {
+                        $.messager.alert('XXX管理系统', r.msg, 'info', function () {
+                            //document.location = "index";
+                        });
+
+
+                    } else {
+                        $.messager.alert('XXX管理系统', r.msg, 'error');
+
+                    }
+
+
+                }
+            });
+        }
+    }
+
+</script>
+
+</html>
