@@ -12,6 +12,8 @@ var login = require('./routes/login');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var module_ejs=require('./routes/LoadModule');
+
 var app = express();
 
 
@@ -56,6 +58,8 @@ app.use(function (req, res, next) {
 
 app.use('/index', index);
 app.use('/users', users);
+
+app.use('/LoadModule',module_ejs);
 
 //登录成功后，如果再次访问根，就踢回到登录,避免有漏洞 ^.^
 //app.use('/',function (req, res, next){
