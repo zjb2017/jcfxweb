@@ -72,11 +72,17 @@
 </body>
 
 <script type="text/javascript">
+
+var iframe_id=0;
+
 	function addTab(node) {
 		//alert(JSON.stringify(node)); 
 		var tab_title = node.text;
 		var url = '/LoadModule?t=show&m=' + node.id;
-		var content = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
+
+		iframe_id++;
+
+		var content = '<iframe id="C_Tab_Iframe_ID_'+iframe_id+'" scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
 
 		$('#tt').tabs('add', {
 			title: tab_title,
@@ -89,15 +95,10 @@
 
 					var current_tab = $('#tt').tabs('getSelected');
 					var iframe = current_tab.panel('options').content;
-
-					//iframe.window.location.reload();
-				var dom=$(iframe)[0];
-				dom.src='http://www.163.com';
+					var iframeID=$(iframe).attr('id');
+					document.getElementById(iframeID).src=document.getElementById(iframeID).src;
 					
 					
-
-					
-					console.log($(iframe).attr('src'));
 				}
 			}]
 		});

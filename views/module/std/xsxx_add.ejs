@@ -63,19 +63,15 @@ function save() {
                 },
                 success: function (data) {
                     var r = JSON.parse(data);
-
                     if (r.success == 'success' && r.errCode == '0') {
                         $.messager.alert('XXX管理系统', r.msg, 'info', function () {
                             //document.location = "index";
                         });
 
-
                     } else {
                         $.messager.alert('XXX管理系统', r.msg, 'error');
 
                     }
-
-
                 }
             });
         }
