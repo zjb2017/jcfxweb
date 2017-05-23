@@ -75,7 +75,7 @@
 	function addTab(node) {
 		//alert(JSON.stringify(node)); 
 		var tab_title = node.text;
-		var url = '/LoadModule?t=show&m='+node.id;
+		var url = '/LoadModule?t=show&m=' + node.id;
 		var content = '<iframe scrolling="auto" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
 
 		$('#tt').tabs('add', {
@@ -85,7 +85,19 @@
 			tools: [{
 				iconCls: 'icon-mini-refresh',
 				handler: function () {
-					alert('refresh');
+					//alert('refresh');
+
+					var current_tab = $('#tt').tabs('getSelected');
+					var iframe = current_tab.panel('options').content;
+
+					//iframe.window.location.reload();
+				var dom=$(iframe)[0];
+				dom.src='http://www.163.com';
+					
+					
+
+					
+					console.log($(iframe).attr('src'));
 				}
 			}]
 		});
