@@ -26,8 +26,8 @@
             <div style="padding:5px 0;">
                 <label for="xb">性别:</label>
                 <select class="easyui-combobox" name="xb" style="width:60px;">
-		<option value="M">男</option>
-		<option value="W">女</option>
+		            <option value="M">男</option>
+		            <option value="W">女</option>
                 </select>
             </div>
             <div style="padding:5px 0;">
@@ -62,6 +62,8 @@ function save() {
                     $("#showMsg").html(request);  //登录错误提示信息
                 },
                 success: function (data) {
+
+                    console.log('hello')
                     var r = JSON.parse(data);
                     if (r.success == 'success' && r.errCode == '0') {
                         $.messager.alert('XXX管理系统', r.msg, 'info', function () {
