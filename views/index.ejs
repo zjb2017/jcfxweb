@@ -92,13 +92,10 @@ var iframe_id=0;
 				iconCls: 'icon-mini-refresh',
 				handler: function () {
 					//alert('refresh');
-
 					var current_tab = $('#tt').tabs('getSelected');
 					var iframe = current_tab.panel('options').content;
 					var iframeID=$(iframe).attr('id');
-					document.getElementById(iframeID).src=document.getElementById(iframeID).src;
-					
-					
+					document.getElementById(iframeID).src=document.getElementById(iframeID).src;	
 				}
 			}]
 		});
@@ -106,10 +103,7 @@ var iframe_id=0;
 	$("#menus_tree").tree({
 		onClick: function (node) {
 			//text: "tomato", state: "open", domId: "_easyui_tree_6"
-
-
 			addTab(node);
-
 		}
 	});
 
