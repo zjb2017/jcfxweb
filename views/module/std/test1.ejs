@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Window Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.2/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.2/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.2/demo/demo.css">
+	<script type="text/javascript" src="jquery-easyui-1.5.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.5.2/jquery.easyui.min.js"></script>
+</head>
+
+<body class="easyui-layout">
+   
+
+X <input type="text" id="t_x"><br>
+Y <input type="text" id="t_y">
+Z <input type="text" id="t_z"><br>
+
+<button type="button" onclick="js();"> 计算 </button>
+
+
+</body>
+
+<script type="text/javascript">
+  
+function js()
+{
+    var x=document.getElementById('t_x').value;
+	var y=document.getElementById('t_y').value;
+    var z=document.getElementById('t_z').value;
+
+
+	console.log(x);
+	console.log(y);
+	console.log(z);
+
+	alert(x);
+
+document.getElementById('t_z').value=x+y;
+}
+
+</script>
+
+</html>
