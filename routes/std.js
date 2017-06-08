@@ -34,12 +34,12 @@ router.post('/', function (req, res, next) {
             res.send('OKKKKK');
 
             //数据层接口调用
-            /*
+            
             var act = 'user.sql.add.stduent';
             jcblsrv.DBRequest(act, postData, function (chunk) {
                 //将处理完毕的数据返回WEB客户端
                 res.send(chunk);
-            });*/
+            });
 
             break;
         }
